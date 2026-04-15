@@ -1,0 +1,192 @@
+:root {
+  --bg-deep: #030712;
+  --bg-sidebar: #0a0f1e;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #3b82f6;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --critical: #ef4444;
+  --high: #f97316;
+  --medium: #facc15;
+  --success: #10b981;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.netwise-app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--glass-border);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 50px;
+}
+.logo span { color: var(--accent-cyan); }
+
+.nav-items {
+  list-style: none;
+  padding: 0;
+}
+.nav-items li {
+  padding: 12px 18px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+.nav-items li:hover, .nav-items li.active {
+  background: var(--glass);
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-cyan);
+}
+
+/* Dashboard Content */
+.dashboard {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.dash-header h1 { font-size: 2rem; font-weight: 700; margin: 0; }
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 180px;
+  gap: 24px;
+}
+
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.bento-item h3 {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Specific Cards */
+.stats-card {
+  grid-column: span 3;
+  grid-row: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.stat { display: flex; justify-content: space-between; align-items: center; }
+.stat .label { color: var(--text-secondary); font-size: 0.9rem; }
+.stat .value { font-size: 1.4rem; font-weight: 700; color: var(--accent-cyan); }
+.stat .value.critical { color: var(--critical); }
+
+.graph-card {
+  grid-column: span 9;
+  grid-row: span 1;
+}
+.mock-graph {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 80px;
+}
+.graph-bar {
+  flex: 1;
+  width: 100%;
+  background: linear-gradient(to top, var(--accent-blue), var(--accent-cyan));
+  border-radius: 4px 4px 0 0;
+  opacity: 0.6;
+}
+
+.incidents-card {
+  grid-column: span 8;
+  grid-row: span 3;
+}
+.nodes-card {
+  grid-column: span 4;
+  grid-row: span 3;
+}
+
+/* Table Design */
+.netwise-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.netwise-table th {
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.netwise-table td {
+  padding: 16px 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.sev-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sev-tag.critical { background: rgba(239, 68, 68, 0.1); color: var(--critical); border: 1px solid var(--critical); }
+.sev-tag.high { background: rgba(249, 115, 22, 0.1); color: var(--high); border: 1px solid var(--high); }
+.sev-tag.medium { background: rgba(250, 204, 21, 0.1); color: var(--medium); border: 1px solid var(--medium); }
+
+/* Node List */
+.node-list { display: flex; flex-direction: column; gap: 16px; }
+.node-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 14px;
+}
+.node-info strong { display: block; font-size: 0.95rem; }
+.node-info span { color: var(--text-secondary); font-size: 0.8rem; }
+
+.status-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.status-pill.online { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+.status-pill.degraded { background: rgba(250, 204, 21, 0.1); color: var(--medium); }
+.status-pill.offline { background: rgba(239, 68, 68, 0.1); color: var(--critical); }
