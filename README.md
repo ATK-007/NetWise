@@ -1,8 +1,10 @@
 # NetWise: Full-Stack Network Intelligence Platform
 
-![NetWise Banner](https://img.shields.io/badge/NetWise-Full--Stack-blue?style=for-the-badge&logo=react)
-![Build Version](https://img.shields.io/badge/Version-1.0.0-green?style=for-the-badge)
-![Testing](https://img.shields.io/badge/Testing-Jest%20%7C%20Vitest-yellow?style=for-the-badge)
+![NetWise Hero Banner](netwise_banner.png)
+
+![Full-Stack](https://img.shields.io/badge/NetWise-Full--Stack-blue?style=for-the-badge&logo=react)
+![GitHub Container Registry](https://img.shields.io/badge/Container-GHCR-red?style=for-the-badge&logo=docker)
+![Reliability](https://img.shields.io/badge/Testing-Jest%20%7C%20Vitest-yellow?style=for-the-badge)
 
 **NetWise** is a high-performance network monitoring and incident response platform. It provides cybersecurity teams with a unified "Bento" dashboard for tracking network node health, managing security incidents, and automating remediation workflows.
 
@@ -41,18 +43,24 @@ git clone https://github.com/ATK-007/NetWise.git
 cd NetWise
 ```
 
-2. **Start Backend**:
+### Option 1: Docker (Production-Ready)
+Launch the entire platform (Frontend + Backend + DB) with a single command:
+
 ```bash
-cd server
-npm install
-npm run dev
+docker pull ghcr.io/atk-007/netwise:latest
+docker run -p 5000:5000 ghcr.io/atk-007/netwise:latest
+```
+Access the platform at `http://localhost:5000`.
+
+### Option 2: Individual Components (Development)
+1. **Start Backend**:
+```bash
+cd server && npm install && npm run dev
 ```
 
-3. **Start Frontend**:
+2. **Start Frontend**:
 ```bash
-cd client
-npm install
-npm run dev
+cd client && npm install && npm run dev
 ```
 
 ## 🚨 Security Scenarios Included
